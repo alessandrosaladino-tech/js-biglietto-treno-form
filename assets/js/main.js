@@ -15,42 +15,55 @@ Tools:
 
 */
 
-//Chiedi età utente
+const button = document.getElementById("generatePrice");
+const result = document.getElementById("priceResult");
 
-const etaUtente = document.getElementById("age");
+button.addEventListener("click", function priceCalc() 
+{
 
-//Chiedi quanti km deve percorrere l'utente
+    const passengerName = document.getElementById("userName").value;
 
-const km = document.getElementById ("km");
+    console.log("Il nome del passeggero è " + passengerName);
 
-console.log(etaUtente, km);
+    const distance = document.getElementById("distance").value;
 
-//Assegno il click al bottone
+    console.log("La distanza da percorrere è: " + distance);
 
-const buttonGenerate = document.querySelector("button")
-console.log(buttonGenerate);
-buttonGenerate.addEventListener ("click", function(){
-    console.log(etaUtente, km);
-})
+    const age = document.getElementById("ageRange").value
 
-//Assegna il vaolre dei km e gli sconti
+    console.log("L'età del passeggero è: " + age);
 
-const costoKm = km * 0.21;
-let scontoVenti = costoKm*20/100;
-let scontoQuaranta = costoKm*40/100;
-let scontatoVenti = costoKm-scontoVenti;
-let scontatoQuaranta = costoKm-scontoQuaranta;
-
-
-//Applica sconto per minorenni e maggiorenni
-const resultElement = document.getElementById("result");
-if (etaUtente >= 18 && etaUtente <= 65)  {
-    console.log(costoKm.toFixed(2));
-    resultElement.innerHTML = "Il prezzo del biglietto è " + costoKm.toFixed(2)
-} else if (etaUtente < 18) {
-    console.log(scontatoVenti.toFixed(2));
-    resultElement.innerHTML = "Il prezzo del biglietto è " + scontatoVenti.toFixed(2)
-} else if (etaUtente > 65) {
-    console.log(scontatoQuaranta.toFixed(2));
-    resultElement.innerHTML = "Il prezzo del biglietto è " + scontatoQuaranta.toFixed(2)
-}
+    if (distance == 0 || passengerName == 0) {
+        result.innerHTML = "Uno dei valori inseriti è nullo. Ricompila il form!"
+    } 
+    
+    else 
+    {
+        if (age == "minore") {
+            const price = distance * 0.21;
+            console.log("Il prezzo è di" + price);
+            const sconto20 = (price * 20) / 100;
+            console.log("lo sconto applicato è di: " + sconto20);
+            const discountedPrice = (price - sconto20).toFixed(2);
+            console.log("Il prezzo scontato del biglietto è " + discountedPrice);
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è di ${discountedPrice}€.`
+        } 
+        
+        else if (age == "anziano") {
+            const price = distance * 0.21;
+            console.log("Il prezzo è " + price);
+            const sconto40 = (price * 40) / 100;
+            console.log("Lo sconto applicato è di: " + sconto40);
+            const discountedPrice = (price - sconto40).toFixed(2);
+            console.log("Il prezzo scontato del biglietto è " + discountedPrice);
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è di ${discountedPrice}€.`
+        } 
+        
+        else {
+            console.log("Il passeggero è adulto");
+            const price = (distance * 0.21).toFixed(2);
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è di ${price}€`
+            console.log("Il prezzo è " + price);        
+        }
+    }
+});
