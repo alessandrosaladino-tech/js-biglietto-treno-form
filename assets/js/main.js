@@ -10,6 +10,9 @@ Tools:
 -prompt
 -const-let
 -if/else
+-inner.html
+-getElementById
+-console.log
 
 
 
@@ -20,6 +23,7 @@ Tools:
 const button = document.getElementById("generatePrice");
 const result = document.getElementById("priceResult");
 
+//Comportamento al click del bottone
 button.addEventListener("click", function priceCalc() 
 {
 
