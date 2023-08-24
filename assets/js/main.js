@@ -15,6 +15,8 @@ Tools:
 
 */
 
+//Dichiaro i bottoni e definisco le variabili iniziali che l'utente deve inserire
+
 const button = document.getElementById("generatePrice");
 const result = document.getElementById("priceResult");
 
@@ -33,6 +35,8 @@ button.addEventListener("click", function priceCalc()
 
     console.log("L'età del passeggero è: " + age);
 
+
+//Inserisco il risultato con le condizioni e lo stampo sia in console che in pagina
     if (distance == 0 || passengerName == 0) {
         result.innerHTML = "Uno dei valori inseriti è nullo. Ricompila il form!"
     } 
@@ -67,3 +71,5 @@ button.addEventListener("click", function priceCalc()
         }
     }
 });
+
+//Al click del bottone l'output deve restituire il biglietto sotto forma visiva
