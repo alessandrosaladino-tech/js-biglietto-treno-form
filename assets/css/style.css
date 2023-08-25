@@ -60,3 +60,15 @@ button {
     padding: 5px;
     
 }
+
+.bg-grey {
+    background-color: grey;
+}
+
+.border-solid {
+    border: 1px solid black;
+}
+
+.details {
+  margin-left: 39px;
+}
