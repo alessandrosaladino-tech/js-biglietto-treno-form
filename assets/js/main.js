@@ -22,6 +22,7 @@ Tools:
 
 const button = document.getElementById("generatePrice");
 const result = document.getElementById("priceResult");
+const resetPage = document.getElementById("reset-ticket")
 
 //Comportamento al click del bottone
 button.addEventListener("click", function priceCalc() 
@@ -88,6 +89,10 @@ button.addEventListener("click", function priceCalc()
         }
     }
 });
+
+resetPage.addEventListener("reset" , function (){
+     passengerName = ""
+})
 
 
 
