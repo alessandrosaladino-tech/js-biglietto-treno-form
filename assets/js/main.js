@@ -54,7 +54,11 @@ button.addEventListener("click", function priceCalc()
             console.log("lo sconto applicato è di: " + sconto20);
             const discountedPrice = (price - sconto20).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è di ${discountedPrice}€.`
+            nomePasseggero.innerHTML = `${passengerName}`;
+            offerta.innerHTML = "Biglietto Giovani"
+            numeroCarrozza.innerHTML = Math.floor((Math.random() * 10) + 1);
+            cpcode.innerHTML = Math.floor((Math.random() * 400) + 500);
+            prezzoBiglietto.innerHTML = discountedPrice;
         } 
         
         else if (age == "anziano") {
@@ -64,16 +68,27 @@ button.addEventListener("click", function priceCalc()
             console.log("Lo sconto applicato è di: " + sconto40);
             const discountedPrice = (price - sconto40).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è di ${discountedPrice}€.`
+            nomePasseggero.innerHTML = `${passengerName}`;
+            offerta.innerHTML = "Biglietto Anziani";
+            numeroCarrozza.innerHTML = Math.floor((Math.random() * 10) + 1);
+            cpcode.innerHTML = Math.floor((Math.random() * 400) + 500);
+            prezzoBiglietto.innerHTML = discountedPrice;
         } 
         
         else {
             console.log("Il passeggero è adulto");
             const price = (distance * 0.21).toFixed(2);
-            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è di ${price}€`
-            console.log("Il prezzo è " + price);        
+            nomePasseggero.innerHTML = `${passengerName}`;
+            offerta.innerHTML = "Biglietto Standard"
+            numeroCarrozza.innerHTML = Math.floor((Math.random() * 10) + 1);
+            cpcode.innerHTML = Math.floor((Math.random() * 400) + 500);
+            prezzoBiglietto.innerHTML = price;
+            console.log("Il prezzo è " + price); 
+                  
         }
     }
 });
+
+
 
 //Al click del bottone l'output deve restituire il biglietto sotto forma visiva
